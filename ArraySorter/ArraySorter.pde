@@ -1,18 +1,16 @@
-/* Paste the code into a new Processing sketch and complete the steps. */
-
 //1. create an array of ints. don't initialize it yet.
-
-
+  int[] integers;
 void setup() {
   //2. set the size of your window
   //  if you are using Processing 3, you cannot use variables
   //  because the developers don't know how programming is supposed to work.
-
+size(500, 500);
   //3. initialize your array with the built in width variable
-  
+  integers[0] = width;
   //4. initialize the ints in the array with random numbers
   //   from 0 to the built in height variable
-
+  
+  
   //5. call the noStroke() method
 
 }
