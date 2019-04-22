@@ -8,6 +8,8 @@ package arrays;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Random;
 
 import javax.swing.JButton;
@@ -15,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class _02_FindTheHiddenButton implements ActionListener {
+public class _02_FindTheHiddenButton implements ActionListener, MouseListener {
 	JFrame window;
 	JPanel panel;
 
@@ -40,7 +42,7 @@ public class _02_FindTheHiddenButton implements ActionListener {
 
 		// 4. Initialize the array of JButtons to be the size of the int created in step
 		// 3
-		JButton[] buttons = new JButton[intButton];
+		buttons = new JButton[intButton];
 
 		// 5. Make a for loop to iterate through the JButton array
 		for (int a = 0; a < intButton; a++) {
@@ -48,7 +50,7 @@ public class _02_FindTheHiddenButton implements ActionListener {
 			// 6. initialize each JButton in the array
 			buttons[a] = new JButton();
 			// 7. add the ActionListener to each JButton
-			buttons[a].addActionListener(this);
+			buttons[a].addMouseListener(this);
 			// 8. add each JButton to the panel
 			panel.add(buttons[a]);
 		}
@@ -88,19 +90,46 @@ public class _02_FindTheHiddenButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+	
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 		JButton buttonClicked = (JButton)e.getSource();
 		System.out.println(hiddenButton);
 		
 		//17. if the hiddenButton is clicked, tell the user that they win.
-		for(int x = 0; x < buttons.length; x ++) {
-		
-			if(buttons[x] == buttonClicked) {
+			if(buttons[hiddenButton] == buttonClicked) {
 			JOptionPane.showMessageDialog(null, "You won!");
 		}
 		//18. else tell them to try again
-		else {
+			else {
 			JOptionPane.showMessageDialog(null, "Try again.");
 		}
 		}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
